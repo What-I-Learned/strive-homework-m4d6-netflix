@@ -1,8 +1,13 @@
 import { Component } from "react";
 import {Navbar,Nav,Form,Button,FormControl,Dropdown,Row,Col,Container} from 'react-bootstrap'
-
+import Search from "./search";
 
 class Navigation extends Component{
+    state = {
+       
+        query :''
+    }
+   
     render(){
         return(
             <div style={{backgroundColor: '#313438',height:'100vh'}}>
@@ -18,7 +23,13 @@ class Navigation extends Component{
                 <Nav.Link style={{color: "white"}} href="#link">Tv shows</Nav.Link>
                 </Nav>
                 <Form inline>
-                <FormControl style={{width: "80px"}} type="text" placeholder="Search" className="mr-sm-2" />
+                <FormControl style={{width: "80px"}}
+                 type="text" 
+                 placeholder="Search"
+                 className="mr-sm-2"
+                 value = {this.state.query} 
+                 onChange = {e => this.setState({query: e.target.value})}
+                  />
                 <Button variant="#313438"><img style={{width: "40px"}} src="https://icon-library.com/images/web-icon-white/web-icon-white-14.jpg" alt="" /></Button>
                 </Form>
                 <Nav>
@@ -60,6 +71,13 @@ class Navigation extends Component{
                     
                 </Col>
             </Row>
+            
+            
+            <Row>
+               <Search id={this.state.query}/>
+            </Row>
+            
+            
             </Container>
             </div>
         )
