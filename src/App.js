@@ -4,11 +4,14 @@ import MovieSection from "./components/MovieSection";
 
 import Footer from "./components/Footer";
 import SingleMovie from "./components/SingleMovie";
+import Navigation from "./components/Navigation";
 
 function App() {
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <Navigation />
+      </header>
       <SingleMovie />
       <MovieSection />
       <Footer />

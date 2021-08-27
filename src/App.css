@@ -71,12 +71,9 @@ body {
 }
 
 .comment-carousel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto 0;
-  width: 100%;
-  text-align: center;
+  color: white;
+  border: 1px solid red;
+  z-index: 99999;
 }
 .comment-carousel-item {
   color: white;
