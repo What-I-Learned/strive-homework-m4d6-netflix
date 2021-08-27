@@ -1,16 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import MovieSection from "./components/MovieSection";
 
-import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
+import SingleMovie from "./components/SingleMovie";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <Navigation />
-      </header>
-      <main></main>
-      <footer></footer>
+      <header></header>
+      <SingleMovie />
+      <MovieSection />
+      <Footer />
     </div>
   );
 }
