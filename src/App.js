@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import MovieSection from "./components/MovieSection";
 
 import Footer from "./components/Footer";
 import SingleMovie from "./components/SingleMovie";
@@ -8,9 +9,8 @@ function App() {
   return (
     <div className="App">
       <header></header>
-      <main>
-        <SingleMovie />
-      </main>
+      <SingleMovie />
+      <MovieSection />
       <Footer />
     </div>
   );
