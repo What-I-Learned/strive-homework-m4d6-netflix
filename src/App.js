@@ -8,8 +8,11 @@ function App() {
     <div className="App">
       <header>
         <Navigation />
+        <BellowNavigation />
       </header>
-      <main></main>
+      <main>
+        <MovieSegmet title={Horror} />
+      </main>
       <footer></footer>
     </div>
   );
