@@ -6,7 +6,7 @@ const FooterIcon = ({ path }) => (
         width="22"
         height="22"
         fill="currentColor"
-        class="bi bi-facebook"
+        className="bi bi-facebook"
         viewBox="0 0 16 16"
       >
         <path d={path} />

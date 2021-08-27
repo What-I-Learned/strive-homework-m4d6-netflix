@@ -5,15 +5,9 @@ body {
 /* single movie */
 .single-movie-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  background-image: linear-gradient(
-      270deg,
-      rgba(164, 164, 164, 0.13) 0%,
-      rgba(0, 0, 0, 0.8883928571428571) 50%,
-      rgba(0, 0, 0, 1) 65%
-    ),
-    url("https://occ-0-1723-92.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABfHVUAAEhu-G5QHH31CutuqX0wBfTK4nzyJXSyUkXm13Stw-yFpmeMzfTkBcmlsWu_CHM-JNr2d2sjncwPLkqG968JMe.jpg?r=321");
+
   height: 600px;
   background-size: cover;
   color: white;
@@ -42,20 +36,51 @@ body {
 .comment-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-self: flex-start;
+  justify-content: flex-start;
+  width: 60%;
+  padding: 10px 2rem;
+  height: 100%;
+}
+.comment-section h4 {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 .comment-form {
   margin-top: 6rem;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-content: flex-start;
 }
 
 .comment-form h4 {
-  text-align: center;
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
+.submit-comment {
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+}
+.submit-comment:hover,
+.submit-comment:focus {
+  background-color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 1);
+}
+
+.comment-carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto 0;
+  width: 100%;
+  text-align: center;
+}
+.comment-carousel-item {
+  color: white;
+}
 /* footer */
 .footer-icon {
   margin-right: 1rem;
