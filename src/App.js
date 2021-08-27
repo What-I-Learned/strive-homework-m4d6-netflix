@@ -1,19 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <Navigation />
-        <BellowNavigation />
-      </header>
-      <main>
-        <MovieSegmet title={Horror} />
-      </main>
-      <footer></footer>
+      <header></header>
+      <main></main>
+      <Footer />
     </div>
   );
 }
