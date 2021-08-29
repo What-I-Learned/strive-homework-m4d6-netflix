@@ -3,11 +3,14 @@ import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 import "./App.css";
 
 import MovieSegment from "./components/MovieSegment";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <NavigationBar />
+      </header>
       <main>
         <MovieSegment name={"horror"} />
         <MovieSegment name={"adventure"} />
