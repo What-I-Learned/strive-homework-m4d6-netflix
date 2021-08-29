@@ -79,7 +79,7 @@ class MovieSegment extends React.Component {
             </div>
           )}
 
-          <h2 className="movie-segment-title">{this.props.name}</h2>
+          <h2 className="movie-segment-title">{this.props.title}</h2>
           <Splide
             className="movie-segment-carousel"
             options={{

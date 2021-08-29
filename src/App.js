@@ -12,10 +12,10 @@ function App() {
         <NavigationBar />
       </header>
       <main>
-        <MovieSegment name={"horror"} />
-        <MovieSegment name={"adventure"} />
-        <MovieSegment name={"comedy"} />
-        <MovieSegment name={"harry potter"} />
+        <MovieSegment title={"horror"} name={"horror"} />
+        <MovieSegment title={"adventure"} name={"adventure"} />
+        <MovieSegment title={"comedy"} name={"comedy"} />
+        <MovieSegment title={"harry potter"} name={"harry potter"} />
       </main>
       <footer></footer>
     </div>
