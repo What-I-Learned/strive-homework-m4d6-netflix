@@ -1,3 +1,121 @@
+body {
+  font-family: "Lato", sans-serif;
+  background-color: rgb(20, 23, 26);
+}
+.container-movie {
+  padding: 1.5rem 1rem;
+}
+.container-movie {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.movie-segment-title {
+  color: rgba(253, 253, 253, 0.76);
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  letter-spacing: 0.06rem;
+  margin-bottom: 0.5rem;
+}
+.splide__track {
+  overflow: visible !important;
+}
+.single-movie-item {
+  overflow: hidden;
+}
+.single-movie-item,
+.movie-segment-arrow {
+  height: 9rem;
+}
+.splide__slide {
+  position: relative;
+  display: block;
+  transition-duration: 0.5s;
+
+  transition: all 300ms;
+}
+
+.splide__list:hover .splide__slide {
+  transform: translateX(-25%);
+}
+.splide__slide:hover ~ .splide__slide {
+  transform: translateX(25%) !important;
+}
+
+.splide__slide:hover {
+  /* transition-delay: 0.4s; */
+  transform: scale(1.4) !important;
+  z-index: 99;
+}
+.splide:hover ~ .movie-segment-arrow {
+  background-color: rgba(156, 19, 19, 0.568);
+}
+.movie-segment-arrow {
+  background-color: rgba(0, 0, 0, 0.568);
+  border-radius: 0;
+  width: 4.5rem;
+  margin: auto -3rem;
+}
+.movie-segment-arrow svg {
+  fill: white;
+}
+.movie-cover {
+  width: 100%;
+  height: 10rem;
+  overflow: hidden;
+}
+.movie-cover img {
+  width: 100%;
+  background-size: cover;
+}
+.single-movie-body {
+  padding: 1rem;
+  height: 5rem;
+  transition: all 500ms;
+  transform: translateY(0);
+  color: rgb(253, 253, 253);
+  background: linear-gradient(
+    180deg,
+    rgba(164, 164, 164, 0) 0%,
+    rgba(0, 0, 0, 1) 85%
+  );
+}
+.single-movie-body h4 {
+  font-size: 0.7rem;
+  letter-spacing: 0.05rem;
+  line-height: 0rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+.single-movie-body small {
+  font-size: 0.6rem;
+  letter-spacing: 0.05rem;
+}
+.splide__slide:hover .single-movie-body {
+  animation-delay: 0.5s;
+  transform: translateY(-5rem);
+}
+.movie-details-btn {
+  display: inline-block;
+  font-size: 0.6rem;
+  padding: 0.1rem 0.25rem;
+  margin-left: 0.5rem;
+  background-color: transparent;
+  border: 1px solid rgb(253, 253, 253);
+}
+.movie-details-btn:hover {
+  background-color: rgb(253, 253, 253);
+  font-weight: 500;
+  color: rgb(20, 23, 26);
+  border: 1px solid rgb(253, 253, 253);
+}
+.single-movie-container {
+  height: 40vh;
+  transition: all 500ms;
+}
+.active-movie {
+  border: 1px solid red;
+}
 @media (prefers-reduced-motion: no-preference) {
 }
 
