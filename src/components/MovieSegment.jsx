@@ -2,6 +2,8 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Container, Button } from "react-bootstrap";
 
+import SingleMovieContainer from "./SingleMovieContainer";
+
 class MovieSegment extends React.Component {
   state = {
     movies: [],
@@ -52,24 +54,34 @@ class MovieSegment extends React.Component {
     return (
       <>
         <Container fluid className="container-movie">
-          <div
-            className="single-movie-container"
-            style={{
-              display:
-                this.state.selected.isSelected == true ? "block" : "none",
-              backgroundSize: "cover",
-              backgroundImage: `linear-gradient(
-                270deg,
-                rgba(164, 164, 164, 0.13) 0%,
-                rgba(0, 0, 0, 0.8883928571428571) 50%,
-                rgba(0, 0, 0, 1) 65%
-              ),
-              url(${this.state.selected.moviePoster})`,
-            }}
-            onClick={() => this.setState({ selected: { isSelected: false } })}
-          ></div>
+          {this.state.selected.isSelected && (
+            <div
+              style={{
+                display: this.state.selected.isSelected ? "block" : "none",
+                position: "relative",
+              }}
+            >
+              <SingleMovieContainer
+                poster={this.state.selected.moviePoster}
+                movieId={this.state.selected.movieId}
+                isSelected={this.state.selected.isSelected}
+              />
+              <button
+                className="close-single-movie"
+                onClick={() =>
+                  this.setState({
+                    selected: { ...this.state.selected, isSelected: false },
+                  })
+                }
+              >
+                Close
+              </button>
+            </div>
+          )}
+
           <h2 className="movie-segment-title">{this.props.name}</h2>
           <Splide
+            className="movie-segment-carousel"
             options={{
               type: "loop",
               rewind: true,
@@ -99,7 +111,7 @@ class MovieSegment extends React.Component {
               <SplideSlide className="single-movie-slide" key={movie.imdbID}>
                 <div className="single-movie-item">
                   <div className="movie-cover">
-                    <img src={movie.Poster} alt="Image 1" />
+                    <img src={movie.Poster} alt="" />
                   </div>
                   <div className="single-movie-body">
                     <h4>{movie.Title}</h4>
