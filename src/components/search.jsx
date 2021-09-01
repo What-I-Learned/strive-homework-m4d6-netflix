@@ -32,7 +32,7 @@ class Search extends Component {
         <Row>
           {this.state.movies.Search &&
             this.state.movies.Search.slice(0, 4).map((movie) => (
-              <Col lg={3}>
+              <Col lg={3} key={movie.imdbId}>
                 <Movies mov={movie} />
               </Col>
             ))}
