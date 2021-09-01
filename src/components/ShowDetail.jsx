@@ -10,9 +10,8 @@ const ShowDetails = ({ match }) => {
       );
       if (response.ok) {
         let data = await response.json();
-        let check = data.imdbId === parseInt(match.params.ID);
-        setMovieDetails(check);
-        alert("success");
+        setMovieDetails(data);
+        console.log(data);
       } else {
         alert("problem");
       }
