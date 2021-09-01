@@ -1,16 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import MovieSection from "./components/MovieSection";
 
+import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import SingleMovie from "./components/SingleMovie";
+
+import Search from "./components/search";
 
 function App() {
   return (
-    <div className="App">
+    <div style={{ backgroundColor: "#313438", height: "auto" }} className="App">
       <header></header>
-      <SingleMovie />
-      <MovieSection />
+      <Navigation />
+      <Search title="fast" />
+      <Search title="evil" />
+      <Search title="the lord of the rings" />
+
       <Footer />
     </div>
   );
