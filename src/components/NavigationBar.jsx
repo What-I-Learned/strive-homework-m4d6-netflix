@@ -11,31 +11,18 @@ import MovieSegment from "./MovieSegment";
 
 class NavigationBar extends React.Component {
   state = {
+    search: false,
     query: "",
-    results: [],
   };
 
-  search = async (e) => {
+  search = (e) => {
     e.preventDefault();
-    try {
-      let response = await fetch(
-        `http://www.omdbapi.com/?apikey=131a9fa6&s=${this.state.query
-          .toLowerCase()
-          .split(" ")
-          .join("+")}`
-      );
-      if (response.ok) {
-        let searchResult = await response.json();
-        this.setState({
-          ...this.state,
-          results: searchResult,
-        });
-        console.log(searchResult);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    this.setState({
+      query: this.state.query,
+      search: true,
+    });
   };
+
   render() {
     return (
       <>
@@ -75,6 +62,7 @@ class NavigationBar extends React.Component {
                   this.setState({
                     ...this.state,
                     query: e.target.value,
+                    // search: false,
                   })
                 }
               />
@@ -84,7 +72,7 @@ class NavigationBar extends React.Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        {this.state.results != 0 && (
+        {this.state.query.length > 0 && (
           <MovieSegment
             title={"Search Results"}
             name={this.state.query.toLowerCase().split(" ").join("+")}

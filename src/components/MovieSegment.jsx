@@ -3,9 +3,11 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Container, Button } from "react-bootstrap";
 
 import SingleMovieContainer from "./SingleMovieContainer";
+import Loading from "./Loading";
 
 class MovieSegment extends React.Component {
   state = {
+    isLoading: true,
     movies: [],
     selected: {
       isSelected: false,
@@ -14,15 +16,19 @@ class MovieSegment extends React.Component {
     },
   };
 
-  fetchMovies = async (movies) => {
+  fetchMovies = async () => {
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=131a9fa6&s=${movies}`
+        `http://www.omdbapi.com/?apikey=131a9fa6&s=${this.props.name
+          .toLowerCase()
+          .split(" ")
+          .join("+")}`
       );
       if (response.ok) {
         let movieData = await response.json();
         this.setState({
-          movies: movieData.Search,
+          isLoading: false,
+          movies: movieData.Search || [],
         });
       } else {
         alert("movies were not loaded");
@@ -45,10 +51,13 @@ class MovieSegment extends React.Component {
     // console.log(this.state.selected);
   };
   componentDidMount = () => {
-    let query = this.props.name.toLowerCase().split(" ").join("+");
-    console.log(query);
-    this.fetchMovies(query);
+    this.fetchMovies();
   };
+  componentDidUpdate(prevProp, prevState) {
+    if (prevProp.name !== this.props.name) {
+      this.fetchMovies();
+    }
+  }
 
   render() {
     return (
@@ -62,7 +71,6 @@ class MovieSegment extends React.Component {
               }}
             >
               <SingleMovieContainer
-                poster={this.state.selected.moviePoster}
                 movieId={this.state.selected.movieId}
                 isSelected={this.state.selected.isSelected}
               />
@@ -70,6 +78,7 @@ class MovieSegment extends React.Component {
                 className="close-single-movie"
                 onClick={() =>
                   this.setState({
+                    isLoading: false,
                     selected: { ...this.state.selected, isSelected: false },
                   })
                 }
@@ -78,8 +87,10 @@ class MovieSegment extends React.Component {
               </button>
             </div>
           )}
-
-          <h2 className="movie-segment-title">{this.props.title}</h2>
+          {this.state.isLoading && <Loading />}
+          {!this.state.isLoading && (
+            <h2 className="movie-segment-title">{this.props.title}</h2>
+          )}
           <Splide
             className="movie-segment-carousel"
             options={{

@@ -1,8 +1,10 @@
 import React from "react";
 import CommentArea from "./CommentArea";
+import Loading from "./Loading";
 
 class SingleMovieContainer extends React.Component {
   state = {
+    isLoading: true,
     movieId: "",
     singleMovie: null,
   };
@@ -15,7 +17,7 @@ class SingleMovieContainer extends React.Component {
       if (response.ok) {
         let movieInfo = await response.json();
         this.setState({
-          ...this.state.singleMovie,
+          isLoading: false,
           singleMovie: movieInfo,
         });
         console.log(this.state.singleMovie);
@@ -30,9 +32,16 @@ class SingleMovieContainer extends React.Component {
     this.fetchSingleMovie();
   };
 
+  componentDidUpdate(previousProps, previousState) {
+    if (previousProps.movieId !== this.props.movieId) {
+      this.fetchSingleMovie();
+    }
+  }
+
   render() {
     return (
       <>
+        {this.state.isLoading && <Loading />}
         {this.state.singleMovie && (
           <div
             className="single-movie-container"

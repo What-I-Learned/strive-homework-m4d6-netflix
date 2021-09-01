@@ -22,7 +22,6 @@ class CommentArea extends React.Component {
       if (response.ok) {
         let commentList = await response.json();
         this.setState({
-          ...this.state,
           comments: commentList,
         });
         console.log(commentList);
@@ -34,6 +33,12 @@ class CommentArea extends React.Component {
   componentDidMount = () => {
     this.fetchComments();
   };
+  // this would be usefull to load multiple id comments
+  // // componentDidUpdate(prevProp, prevState) {
+  // //   if (prevProp.movieId !== this.props.movieId) {
+  // //     this.fetchComments();
+  // //   }
+  // }
 
   render() {
     return (

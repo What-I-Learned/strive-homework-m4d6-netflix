@@ -26,13 +26,14 @@ class LeaveComment extends React.Component {
         }
       );
       if (response.ok) {
-        console.log("comment was sent");
-        {
-          this.props.fetchComments();
-        }
+        alert("comment was sent");
+
+        this.props.fetchComments();
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      this.setState({ comment: { comment: "" } });
     }
   };
 

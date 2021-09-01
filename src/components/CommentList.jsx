@@ -3,10 +3,10 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 class CommentList extends React.Component {
   render() {
-    this.props.commentsToLoad.map((comment) => console.log(comment.comment));
+    console.log("props", this.props);
     return (
       <Splide
-        className="comment-slider"
+        //  className="comment-slider"
         options={{
           type: "loop",
           rewind: true,
@@ -20,8 +20,17 @@ class CommentList extends React.Component {
         }}
       >
         {this.props.commentsToLoad.map((comment) => (
-          <SplideSlide className="comment-slide" key={comment._id}>
-            <p className="comment-text">{comment.comment}</p>
+          <SplideSlide
+            //className="comment-slide"
+
+            key={comment._id}
+          >
+            <p
+
+            //className="comment-text"
+            >
+              {comment.comment}
+            </p>
           </SplideSlide>
         ))}
       </Splide>
