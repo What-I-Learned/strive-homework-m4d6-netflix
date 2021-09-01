@@ -38,6 +38,7 @@ class LeaveComment extends React.Component {
   };
 
   render() {
+    console.log(this.props.commentId);
     return (
       <Form className="comment-form" onSubmit={this.sendComment}>
         <Form.Group className="mb-3" controlId="leave-comment">

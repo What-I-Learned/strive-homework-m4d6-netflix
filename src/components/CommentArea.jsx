@@ -1,4 +1,5 @@
 import React from "react";
+import { match } from "minimatch";
 
 import CommentList from "./CommentList";
 import LeaveComment from "./LeaveComment";
@@ -41,6 +42,7 @@ class CommentArea extends React.Component {
   // }
 
   render() {
+    console.log(this.props.movieId);
     return (
       <div className="comment-area">
         <h2>Comments</h2>

@@ -5,8 +5,11 @@ import { Container, Button } from "react-bootstrap";
 import SingleMovieContainer from "./SingleMovieContainer";
 import Loading from "./Loading";
 
+import { Link } from "react-router-dom";
+
 class MovieSegment extends React.Component {
   state = {
+    type: this.props.type ? this.props.type : "",
     isLoading: true,
     movies: [],
     selected: {
@@ -22,7 +25,7 @@ class MovieSegment extends React.Component {
         `http://www.omdbapi.com/?apikey=131a9fa6&s=${this.props.name
           .toLowerCase()
           .split(" ")
-          .join("+")}`
+          .join("+")}${this.props.type}`
       );
       if (response.ok) {
         let movieData = await response.json();
@@ -127,14 +130,16 @@ class MovieSegment extends React.Component {
                   <div className="single-movie-body">
                     <h4>{movie.Title}</h4>
                     <small>{movie.Year}</small>
-                    <Button
-                      className="movie-details-btn"
-                      onClick={(e) =>
-                        this.clickHandler(e, movie.imdbID, movie.Poster)
-                      }
-                    >
-                      Check details!
-                    </Button>
+                    <Link to={"/details/" + movie.imdbID}>
+                      <Button
+                        className="movie-details-btn"
+                        onClick={(e) =>
+                          this.clickHandler(e, movie.imdbID, movie.Poster)
+                        }
+                      >
+                        Check details!
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </SplideSlide>
