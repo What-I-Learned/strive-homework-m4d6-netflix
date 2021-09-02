@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class Movies extends Component {
   state = {
-    comments: null,
+    allMovies: null,
   };
   render() {
     return (
@@ -13,7 +13,7 @@ class Movies extends Component {
           <Card.Img
             onClick={() =>
               this.setState({
-                comments: this.props.mov,
+                allMovies: this.props.mov,
               })
             }
             variant="top"
@@ -31,13 +31,13 @@ class Movies extends Component {
           </Card.Body>
         </Card>
         <Row>
-          {this.state.comments && (
+          {this.state.allMovies && (
             <Modal.Dialog>
               <Modal.Header closeButton>
-                <Modal.Title>{this.state.comments.Title}</Modal.Title>
+                <Modal.Title>{this.state.allMovies.Title}</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p>{this.state.comments.Year}</p>
+                <p>{this.state.allMovies.Year}</p>
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary">Close</Button>

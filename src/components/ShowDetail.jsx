@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Button, Card, Container, Row } from "react-bootstrap";
 
 const ShowDetails = ({ match }) => {
   const [movieDetails, setMovieDetails] = useState([]);
@@ -18,7 +19,28 @@ const ShowDetails = ({ match }) => {
     };
     fetchMovieDetails();
   }, []);
-  return <>{movieDetails && <h1>{movieDetails.Title}</h1>}</>;
+  return (
+    <>
+      {movieDetails && (
+        <Container>
+          <Row>
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={movieDetails.Poster} />
+              <Card.Body>
+                <Card.Title style={{ color: "black" }}>
+                  {movieDetails.Title}
+                </Card.Title>
+                <Card.Text style={{ color: "black" }}>
+                  {movieDetails.Plot}
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Row>
+        </Container>
+      )}
+    </>
+  );
 };
 
 export default ShowDetails;

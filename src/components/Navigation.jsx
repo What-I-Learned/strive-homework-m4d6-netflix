@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Movies from "./Movies";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   Nav,
@@ -32,9 +33,12 @@ class Navigation extends Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link style={{ color: "white" }} href="#home">
-                  Home
-                </Nav.Link>
+                <Link to="/">
+                  <Nav.Link style={{ color: "white" }} href="#home">
+                    Home
+                  </Nav.Link>
+                </Link>
+
                 <Nav.Link style={{ color: "white" }} href="#link">
                   Tv shows
                 </Nav.Link>
