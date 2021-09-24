@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Search from "./components/search";
 import ShowDetails from "./components/ShowDetail";
 import LeaveComment from "./components/LeaveComment";
+import MyApiMovies from "./components/myApiMovies";
 function App() {
   return (
     <Router>
@@ -18,11 +19,7 @@ function App() {
         <Route component={LeaveComment} path="/Comments/:ID" />
         <Route component={ShowDetails} path="/details/:ID" />
 
-        <Route
-          path="/"
-          exact
-          render={() => <Search title="Fast and Furious" />}
-        />
+        <Route path="/" exact render={() => <MyApiMovies />} />
         <Route path="/" exact render={() => <Search title="Resident evil" />} />
         <Route
           path="/"
