@@ -6,7 +6,9 @@ const MyApiMovies = () => {
 
   useEffect(() => {
     const GetMovies = async () => {
-      const movies = await fetch("http://localhost:3001/netflix/");
+      const movies = await fetch(
+        "https://strive-netflix.herokuapp.com/netflix"
+      );
       if (movies.ok) {
         const data = await movies.json();
         setMovies(data);
@@ -18,7 +20,7 @@ const MyApiMovies = () => {
   return (
     <Container>
       <Row>
-        <h1 style={{ color: "white" }}>from my localhost api</h1>
+        <h1 style={{ color: "white" }}>data coming from my api</h1>
       </Row>
       <Row>
         {movies &&
